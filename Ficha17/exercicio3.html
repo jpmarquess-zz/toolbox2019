@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <div id="exercicio3">
+        <h1>J O G O</h1>
+        <h3>Adivinha o número</h3>
+        <!-- 1) Exibir um alerta enquanto não atingir o valor 37 e informar quando adivinhar (ou ultrapassar) -->
+        <div>
+            <p>valor atual: {{ value }}</p>
+            <button @click="valor += 5">Soma 5</button>
+            <button @click="valor += 1">Soma 1</button>
+            <p>{{ resultado }}</p>
+        </div>
+        <!-- 2) Analiza o valor introduzido e faz reset ao input após 5 segundos (obs: setTimeout(..., 5000) -->
+        <div>
+            <input type="text">
+            <p>{{ valor }}</p>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#exercicio3',
+            data: {
+                valor: 0
+            }
+        });
+    </script>
+</body>
+
+</html>
