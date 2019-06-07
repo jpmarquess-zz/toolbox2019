@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .realizada {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        .prioritario {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>
+            {{ titulo }}
+        </h1>
+        <h2>
+            Lista de Tarefas
+        </h2>
+
+        <input type="text" placeholder="Insira uma nova tarefa" v-model="novaTarefa" @keyup.enter="tarefas.push(novaTarefa)">
+        
+        <button @click="tarefas.push(novaTarefa)">Inserir</button>
+        <ul>
+            <li
+                v-for="item in tarefas"
+                :class="{realizada: item.realizada, prioritario:item.prioritario}"
+                @click="realizaTarefa(item)">
+                {{ item.nome }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+    <script>
+        var aplicacao = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Hello World',
+                novaTarefa: '',
+                tarefas: [{  
+                    nome: "Exercicio de HTML e CSS",
+                    prioritario: false,
+                    realizada: false
+                }, {
+                    nome: "Exercicio de Javascript",
+                    prioritario: false,
+                    realizada: false
+                }, {
+                    nome: "Exercicio de VueJS",
+                    prioritario: false,
+                    realizada: false
+                }, {
+                    nome: "Exercicio de Angular",
+                    prioritario: true,
+                    realizada: false
+                }, ]
+            },
+            methods:{
+                realizaTarefa: function(item) {
+                    item.realizada = !item.realizada
+                },
+                inseretarefa: function() {
+                    if(!!this.novaTarefa){
+                        this.tarefas.push( {
+                            nome: this.novaTarefa,
+                            prioritario: false,
+                            realizada: false
+                        })
+                        this.novaTarefa=''
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+.flex-container {
+    display: flex;
+    align-content: stretch;
+}
+
+.flex-item {
+    order: -1;
+    flex-shrink: 0;
+    flex-grow: 3;
+    flex-basis: auto;
+    align-self: auto;
+}
+
+.quadrado {
+    width: 150px;
+    height: 150px;
+    margin: 30px;
+    text-align: center;
+    border-radius: 250px;
+}
+
+.quadrado.quadrado1 {
+    background-color: green;
+    box-shadow: 0px 0px 10px 10px #3c7b11;
+}
+
+.quadrado.quadrado2 {
+    background-color: rgb(0, 128, 111);
+    box-shadow: 0px 0px 10px 10px #08728d;
+}
+
+.quadrado.quadrado3 {
+    background-color: rgb(128, 0, 85);
+    box-shadow: 0px 0px 10px 10px #7b056b;
+}
